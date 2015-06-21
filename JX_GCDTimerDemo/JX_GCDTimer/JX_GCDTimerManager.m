@@ -14,6 +14,18 @@
 
 @implementation JX_GCDTimerManager
 
++ (JX_GCDTimerManager *)sharedInstance
+{
+    static JX_GCDTimerManager *_gcdTimerManager = nil;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken,^{
+        _gcdTimerManager = [[JX_GCDTimerManager alloc] init];
+    });
+    
+    return _gcdTimerManager;
+}
+
 - (NSMutableDictionary *)timerContainer
 {
     if (!_timerContainer) {
