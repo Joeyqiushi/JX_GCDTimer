@@ -10,6 +10,8 @@
 
 @interface JX_GCDTimerManager : NSObject
 
++ (JX_GCDTimerManager *)sharedInstance;
+
 /**
  启动一个timer，默认精度为0.1秒
  
