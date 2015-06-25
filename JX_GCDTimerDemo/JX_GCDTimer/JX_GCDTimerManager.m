@@ -74,7 +74,6 @@
     dispatch_source_t timer = [self.timerContainer objectForKey:timerName];
     
     if (!timer) {
-        NSAssert1(0, @"Timer with name \"%@\" doesn't exist!", timerName);
         return;
     }
     
