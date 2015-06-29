@@ -26,6 +26,7 @@ static NSString *myTimer = @"MyTimer";
                                          timeInterval:2.0
                                                 queue:nil
                                               repeats:YES
+                                         actionOption:AbandonPreviousAction
                                                action:^{
                                                    [weakSelf doSomethingEveryTwoSeconds];
                                                }];
@@ -45,7 +46,7 @@ static NSString *myTimer = @"MyTimer";
 /* 持有timerManager的对象销毁时，将其中的timer全部撤销 */
 - (void)dealloc
 {
-    [[JX_GCDTimerManager sharedInstance] cancelAllTimer];
+    [[JX_GCDTimerManager sharedInstance] cancelTimerWithName:myTimer];
 }
 
 @end
