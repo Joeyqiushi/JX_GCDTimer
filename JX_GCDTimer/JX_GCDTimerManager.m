@@ -58,9 +58,8 @@
             
         case AbandonPreviousAction:
         {
-            /* 移除之前的action，cache这次的action */
+            /* 移除之前的action */
             [weakSelf removeActionCacheForTimer:timerName];
-            [self cacheAction:action forTimer:timerName];
             
             dispatch_source_set_event_handler(timer, ^{
                 action();
@@ -74,6 +73,7 @@
             
         case MergePreviousAction:
         {
+            /* cache本次的action */
             [self cacheAction:action forTimer:timerName];
             
             dispatch_source_set_event_handler(timer, ^{

@@ -21,15 +21,18 @@ static NSString *myTimer = @"MyTimer";
     [super viewDidLoad];
     
     /* 启动一个timer，每隔2秒执行一次 */
+    
+    // 提供ActionOption之前，需要手动cancel掉上一个timer，再重新schedule
+    [[JX_GCDTimerManager sharedInstance] cancelTimerWithName:myTimer];
     __weak typeof(self) weakSelf = self;
     [[JX_GCDTimerManager sharedInstance] scheduledDispatchTimerWithName:myTimer
-                                         timeInterval:2.0
-                                                queue:nil
-                                              repeats:YES
-                                         actionOption:AbandonPreviousAction
-                                               action:^{
-                                                   [weakSelf doSomethingEveryTwoSeconds];
-                                               }];
+                                                           timeInterval:2.0
+                                                                  queue:nil
+                                                                repeats:NO
+                                                           actionOption:AbandonPreviousAction
+                                                                 action:^{
+                                                                     [weakSelf doSomething];
+                                                                 }];
 }
 
 /* timer每次执行打印一条log记录，在执行到n==10的时候cancel掉timer */
@@ -41,6 +44,11 @@ static NSString *myTimer = @"MyTimer";
     if (n >= 10) {
         [[JX_GCDTimerManager sharedInstance] cancelTimerWithName:myTimer];
     }
+}
+
+- (void)doSomething
+{
+
 }
 
 /* 持有timerManager的对象销毁时，将其中的timer全部撤销 */
