@@ -11,6 +11,7 @@
 @interface JX_GCDTimerManager()
 @property (nonatomic, strong) NSMutableDictionary *timerContainer;
 @property (nonatomic, strong) NSMutableDictionary *actionBlockCache;
+@property (nonatomic, strong) NSTimer *timer;
 @end
 
 @implementation JX_GCDTimerManager
@@ -107,13 +108,12 @@
     [self.actionBlockCache removeObjectForKey:timerName];
 }
 
-- (void)cancelAllTimer
+- (BOOL)existTimer:(NSString *)timerName
 {
-    // Fast Enumeration
-    [self.timerContainer enumerateKeysAndObjectsUsingBlock:^(NSString *timerName, dispatch_source_t timer, BOOL *stop) {
-        [self.timerContainer removeObjectForKey:timerName];
-        dispatch_source_cancel(timer);
-    }];
+    if ([self.timerContainer objectForKey:timerName]) {
+        return YES;
+    }
+    return NO;
 }
 
 #pragma mark - Property
@@ -134,7 +134,7 @@
     return _actionBlockCache;
 }
 
-#pragma mark - Private Method
+#pragma mark - Action Cache
 
 - (void)cacheAction:(dispatch_block_t)action forTimer:(NSString *)timerName
 {

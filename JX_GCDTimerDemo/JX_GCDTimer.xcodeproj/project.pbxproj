@@ -422,6 +422,7 @@
 				8DE607F91B33070300BCDEE4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8DE607FA1B33070300BCDEE4 /* Build configuration list for PBXNativeTarget "JX_GCDTimerTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +431,7 @@
 				8DE607FC1B33070300BCDEE4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
