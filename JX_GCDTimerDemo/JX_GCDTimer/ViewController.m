@@ -14,69 +14,64 @@
 @property (nonatomic, strong) NSTimer *timer;
 @end
 
-static NSString *myTimer = @"MyTimer";
+static NSString * const myTimer = @"MyTimer";
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    /* 启动一个timer，每隔2秒执行一次 */
+    /* 启动一个timer，每隔2秒执行一次。每次执行打印一条log记录，在执行到n==10的时候cancel掉timer。 */
+//    [self demoNSTimer];
+    [self demoGCDTimer];
     
-    NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(doSomething) object:nil];
-    [thread start];
-    
-//    __weak typeof(self) weakSelf = self;
-//    [[JX_GCDTimerManager sharedInstance] scheduledDispatchTimerWithName:myTimer
-//                                                           timeInterval:2.0
-//                                                                  queue:nil
-//                                                                repeats:NO
-//                                                           actionOption:AbandonPreviousAction
-//                                                                 action:^{
-//                                                                     [weakSelf doSomething];
-//                                                                 }];
+/*
+ *  苹果的开发人员应该发现了NSTimer比较严重的循环引用缺陷，所以在iOS10上提供了使用block的NSTimer接口：
+ *  + (NSTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)interval
+ *                                      repeats:(BOOL)repeats
+ *                                        block:(void (^)(NSTimer *timer))block;
+ */
+//    [self demoNSTimerAfteriOS10];
+}
+
+- (void)demoNSTimer {
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0
+                                                  target:self
+                                                selector:@selector(doSomething)
+                                                userInfo:nil
+                                                 repeats:YES];
+}
+
+- (void)demoGCDTimer {
+    __weak typeof(self) weakSelf = self;
+    [[JX_GCDTimerManager sharedInstance] scheduledDispatchTimerWithName:myTimer
+                                                           timeInterval:2.0
+                                                                  queue:nil
+                                                                repeats:YES
+                                                           actionOption:AbandonPreviousAction
+                                                                 action:^{
+                                                                     [weakSelf doSomething];
+                                                                 }];
+}
+
+- (void)demoNSTimerAfteriOS10 {
+    __weak typeof(self) weakSelf = self;
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0
+                                                 repeats:YES
+                                                   block:^(NSTimer * _Nonnull timer) {
+                                                       [weakSelf doSomething];
+                                                   }];
 }
 
 /* timer每次执行打印一条log记录，在执行到n==10的时候cancel掉timer */
-- (void)doSomethingEveryTwoSeconds
-{
+- (void)doSomething {
     static NSUInteger n = 0;
     NSLog(@"myTimer runs %lu times!", (unsigned long)n++);
     
     if (n >= 10) {
+        [self.timer invalidate];
         [[JX_GCDTimerManager sharedInstance] cancelTimerWithName:myTimer];
     }
-}
-
-- (void)doSomething
-{
-    _timer = [NSTimer timerWithTimeInterval:2.0
-                                             target:self
-                                           selector:@selector(doSomethingEveryTwoSeconds)
-                                           userInfo:nil
-                                            repeats:YES];
-    [NSThread currentThread];
-}
-
-- (void)someWhereA
-{
-    _timer = [NSTimer timerWithTimeInterval:2.0
-                                     target:self
-                                   selector:@selector(doSomethingEveryTwoSeconds)
-                                   userInfo:nil
-                                    repeats:YES];
-}
-
-- (void)someWhereB
-{
-    [_timer invalidate];
-}
-
-/* 持有timerManager的对象销毁时，将其中的timer全部撤销 */
-
-- (void)dealloc
-{
-    [_timer invalidate];
 }
 
 @end

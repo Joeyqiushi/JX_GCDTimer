@@ -17,8 +17,7 @@
 
 #pragma mark - Public Method
 
-+ (JX_GCDTimerManager *)sharedInstance
-{
++ (JX_GCDTimerManager *)sharedInstance {
     static JX_GCDTimerManager *_gcdTimerManager = nil;
     static dispatch_once_t onceToken;
     
@@ -34,8 +33,7 @@
                                  queue:(dispatch_queue_t)queue
                                repeats:(BOOL)repeats
                           actionOption:(ActionOption)option
-                                action:(dispatch_block_t)action
-{
+                                action:(dispatch_block_t)action {
     if (nil == timerName)
         return;
     
@@ -49,15 +47,13 @@
         [self.timerContainer setObject:timer forKey:timerName];
     }
     
-    /* timer精度为0.1秒 */
-    dispatch_source_set_timer(timer, dispatch_time(DISPATCH_TIME_NOW, interval * NSEC_PER_SEC), interval * NSEC_PER_SEC, 0.1 * NSEC_PER_SEC);
+    /* timer精度为0.01秒 */
+    dispatch_source_set_timer(timer, dispatch_time(DISPATCH_TIME_NOW, interval * NSEC_PER_SEC), interval * NSEC_PER_SEC, 0.01 * NSEC_PER_SEC);
     
     __weak typeof(self) weakSelf = self;
     
     switch (option) {
-            
-        case AbandonPreviousAction:
-        {
+        case AbandonPreviousAction: {
             /* 移除之前的action */
             [weakSelf removeActionCacheForTimer:timerName];
             
@@ -71,8 +67,7 @@
         }
             break;
             
-        case MergePreviousAction:
-        {
+        case MergePreviousAction: {
             /* cache本次的action */
             [self cacheAction:action forTimer:timerName];
             
@@ -93,8 +88,7 @@
     }
 }
 
-- (void)cancelTimerWithName:(NSString *)timerName
-{
+- (void)cancelTimerWithName:(NSString *)timerName {
     dispatch_source_t timer = [self.timerContainer objectForKey:timerName];
     
     if (!timer) {
@@ -107,49 +101,43 @@
     [self.actionBlockCache removeObjectForKey:timerName];
 }
 
-- (void)cancelAllTimer
-{
-    // Fast Enumeration
-    [self.timerContainer enumerateKeysAndObjectsUsingBlock:^(NSString *timerName, dispatch_source_t timer, BOOL *stop) {
-        [self.timerContainer removeObjectForKey:timerName];
-        dispatch_source_cancel(timer);
-    }];
+- (BOOL)existTimer:(NSString *)timerName {
+    if ([self.timerContainer objectForKey:timerName]) {
+        return YES;
+    }
+    return NO;
 }
 
 #pragma mark - Property
 
-- (NSMutableDictionary *)timerContainer
-{
+- (NSMutableDictionary *)timerContainer {
     if (!_timerContainer) {
         _timerContainer = [[NSMutableDictionary alloc] init];
     }
     return _timerContainer;
 }
 
-- (NSMutableDictionary *)actionBlockCache
-{
+- (NSMutableDictionary *)actionBlockCache {
     if (!_actionBlockCache) {
         _actionBlockCache = [[NSMutableDictionary alloc] init];
     }
     return _actionBlockCache;
 }
 
-#pragma mark - Private Method
+#pragma mark - Action Cache
 
-- (void)cacheAction:(dispatch_block_t)action forTimer:(NSString *)timerName
-{
+- (void)cacheAction:(dispatch_block_t)action forTimer:(NSString *)timerName {
     id actionArray = [self.actionBlockCache objectForKey:timerName];
     
     if (actionArray && [actionArray isKindOfClass:[NSMutableArray class]]) {
         [(NSMutableArray *)actionArray addObject:action];
-    }else {
+    } else {
         NSMutableArray *array = [NSMutableArray arrayWithObject:action];
         [self.actionBlockCache setObject:array forKey:timerName];
     }
 }
 
-- (void)removeActionCacheForTimer:(NSString *)timerName
-{
+- (void)removeActionCacheForTimer:(NSString *)timerName {
     if (![self.actionBlockCache objectForKey:timerName])
         return;
     

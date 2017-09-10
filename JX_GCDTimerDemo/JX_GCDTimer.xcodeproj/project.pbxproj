@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D5980B91F65084000BEDD70 /* JX_GCDTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D5980B81F65084000BEDD70 /* JX_GCDTimerManager.m */; };
 		8DE607DA1B33070300BCDEE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE607D91B33070300BCDEE4 /* main.m */; };
 		8DE607DD1B33070300BCDEE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE607DC1B33070300BCDEE4 /* AppDelegate.m */; };
 		8DE607E01B33070300BCDEE4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE607DF1B33070300BCDEE4 /* ViewController.m */; };
@@ -14,7 +15,6 @@
 		8DE607E51B33070300BCDEE4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DE607E41B33070300BCDEE4 /* Images.xcassets */; };
 		8DE607E81B33070300BCDEE4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DE607E61B33070300BCDEE4 /* LaunchScreen.xib */; };
 		8DE607F41B33070300BCDEE4 /* JX_GCDTimerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE607F31B33070300BCDEE4 /* JX_GCDTimerTests.m */; };
-		8DE607FF1B330F8400BCDEE4 /* JX_GCDTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE607FE1B330F8400BCDEE4 /* JX_GCDTimerManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8D5980B71F65084000BEDD70 /* JX_GCDTimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JX_GCDTimerManager.h; sourceTree = "<group>"; };
+		8D5980B81F65084000BEDD70 /* JX_GCDTimerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JX_GCDTimerManager.m; sourceTree = "<group>"; };
 		8DE607D41B33070300BCDEE4 /* JX_GCDTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JX_GCDTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DE607D81B33070300BCDEE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DE607D91B33070300BCDEE4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -41,8 +43,6 @@
 		8DE607ED1B33070300BCDEE4 /* JX_GCDTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JX_GCDTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DE607F21B33070300BCDEE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DE607F31B33070300BCDEE4 /* JX_GCDTimerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JX_GCDTimerTests.m; sourceTree = "<group>"; };
-		8DE607FD1B330F8400BCDEE4 /* JX_GCDTimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JX_GCDTimerManager.h; sourceTree = "<group>"; };
-		8DE607FE1B330F8400BCDEE4 /* JX_GCDTimerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JX_GCDTimerManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +63,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D5980B61F65084000BEDD70 /* JX_GCDTimer */ = {
+			isa = PBXGroup;
+			children = (
+				8D5980B71F65084000BEDD70 /* JX_GCDTimerManager.h */,
+				8D5980B81F65084000BEDD70 /* JX_GCDTimerManager.m */,
+			);
+			name = JX_GCDTimer;
+			path = ../../JX_GCDTimer;
+			sourceTree = "<group>";
+		};
 		8DE607CB1B33070200BCDEE4 = {
 			isa = PBXGroup;
 			children = (
@@ -84,8 +94,7 @@
 		8DE607D61B33070300BCDEE4 /* JX_GCDTimer */ = {
 			isa = PBXGroup;
 			children = (
-				8DE607FD1B330F8400BCDEE4 /* JX_GCDTimerManager.h */,
-				8DE607FE1B330F8400BCDEE4 /* JX_GCDTimerManager.m */,
+				8D5980B61F65084000BEDD70 /* JX_GCDTimer */,
 				8DE607DB1B33070300BCDEE4 /* AppDelegate.h */,
 				8DE607DC1B33070300BCDEE4 /* AppDelegate.m */,
 				8DE607DE1B33070300BCDEE4 /* ViewController.h */,
@@ -226,7 +235,7 @@
 			files = (
 				8DE607E01B33070300BCDEE4 /* ViewController.m in Sources */,
 				8DE607DD1B33070300BCDEE4 /* AppDelegate.m in Sources */,
-				8DE607FF1B330F8400BCDEE4 /* JX_GCDTimerManager.m in Sources */,
+				8D5980B91F65084000BEDD70 /* JX_GCDTimerManager.m in Sources */,
 				8DE607DA1B33070300BCDEE4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
