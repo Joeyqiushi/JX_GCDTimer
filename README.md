@@ -5,4 +5,6 @@ NSTimer like tool implemented using GCD.
 
 在需要使用的文件里引入“JX_GCDTimerManager.h”，“JX_GCDTimerManager.h”里提供了三个接口。
 
-当然你也可以选择按自己的需求修改代码、增删接口：）
+当然你也可以选择按自己的需求修改代码、增删接口。
+
+喜欢的朋友点个星支持一下啦：）
