@@ -14,18 +14,7 @@
 		8DE607E31B33070300BCDEE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DE607E11B33070300BCDEE4 /* Main.storyboard */; };
 		8DE607E51B33070300BCDEE4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DE607E41B33070300BCDEE4 /* Images.xcassets */; };
 		8DE607E81B33070300BCDEE4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DE607E61B33070300BCDEE4 /* LaunchScreen.xib */; };
-		8DE607F41B33070300BCDEE4 /* JX_GCDTimerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE607F31B33070300BCDEE4 /* JX_GCDTimerTests.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		8DE607EE1B33070300BCDEE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8DE607CC1B33070200BCDEE4 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DE607D31B33070300BCDEE4;
-			remoteInfo = JX_GCDTimer;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		8D5980B71F65084000BEDD70 /* JX_GCDTimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JX_GCDTimerManager.h; sourceTree = "<group>"; };
@@ -40,20 +29,10 @@
 		8DE607E21B33070300BCDEE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8DE607E41B33070300BCDEE4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8DE607E71B33070300BCDEE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		8DE607ED1B33070300BCDEE4 /* JX_GCDTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JX_GCDTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8DE607F21B33070300BCDEE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8DE607F31B33070300BCDEE4 /* JX_GCDTimerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JX_GCDTimerTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		8DE607D11B33070300BCDEE4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8DE607EA1B33070300BCDEE4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -77,7 +56,6 @@
 			isa = PBXGroup;
 			children = (
 				8DE607D61B33070300BCDEE4 /* JX_GCDTimer */,
-				8DE607F01B33070300BCDEE4 /* JX_GCDTimerTests */,
 				8DE607D51B33070300BCDEE4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,7 +64,6 @@
 			isa = PBXGroup;
 			children = (
 				8DE607D41B33070300BCDEE4 /* JX_GCDTimer.app */,
-				8DE607ED1B33070300BCDEE4 /* JX_GCDTimerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,23 +93,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		8DE607F01B33070300BCDEE4 /* JX_GCDTimerTests */ = {
-			isa = PBXGroup;
-			children = (
-				8DE607F31B33070300BCDEE4 /* JX_GCDTimerTests.m */,
-				8DE607F11B33070300BCDEE4 /* Supporting Files */,
-			);
-			path = JX_GCDTimerTests;
-			sourceTree = "<group>";
-		};
-		8DE607F11B33070300BCDEE4 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				8DE607F21B33070300BCDEE4 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -153,24 +113,6 @@
 			productReference = 8DE607D41B33070300BCDEE4 /* JX_GCDTimer.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8DE607EC1B33070300BCDEE4 /* JX_GCDTimerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8DE607FA1B33070300BCDEE4 /* Build configuration list for PBXNativeTarget "JX_GCDTimerTests" */;
-			buildPhases = (
-				8DE607E91B33070300BCDEE4 /* Sources */,
-				8DE607EA1B33070300BCDEE4 /* Frameworks */,
-				8DE607EB1B33070300BCDEE4 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8DE607EF1B33070300BCDEE4 /* PBXTargetDependency */,
-			);
-			name = JX_GCDTimerTests;
-			productName = JX_GCDTimerTests;
-			productReference = 8DE607ED1B33070300BCDEE4 /* JX_GCDTimerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -182,10 +124,6 @@
 				TargetAttributes = {
 					8DE607D31B33070300BCDEE4 = {
 						CreatedOnToolsVersion = 6.3.1;
-					};
-					8DE607EC1B33070300BCDEE4 = {
-						CreatedOnToolsVersion = 6.3.1;
-						TestTargetID = 8DE607D31B33070300BCDEE4;
 					};
 				};
 			};
@@ -203,7 +141,6 @@
 			projectRoot = "";
 			targets = (
 				8DE607D31B33070300BCDEE4 /* JX_GCDTimer */,
-				8DE607EC1B33070300BCDEE4 /* JX_GCDTimerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -216,13 +153,6 @@
 				8DE607E31B33070300BCDEE4 /* Main.storyboard in Resources */,
 				8DE607E81B33070300BCDEE4 /* LaunchScreen.xib in Resources */,
 				8DE607E51B33070300BCDEE4 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8DE607EB1B33070300BCDEE4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,23 +170,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8DE607E91B33070300BCDEE4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8DE607F41B33070300BCDEE4 /* JX_GCDTimerTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		8DE607EF1B33070300BCDEE4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8DE607D31B33070300BCDEE4 /* JX_GCDTimer */;
-			targetProxy = 8DE607EE1B33070300BCDEE4 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8DE607E11B33070300BCDEE4 /* Main.storyboard */ = {
@@ -378,40 +292,6 @@
 			};
 			name = Release;
 		};
-		8DE607FB1B33070300BCDEE4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = JX_GCDTimerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JX_GCDTimer.app/JX_GCDTimer";
-			};
-			name = Debug;
-		};
-		8DE607FC1B33070300BCDEE4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = JX_GCDTimerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JX_GCDTimer.app/JX_GCDTimer";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -429,15 +309,6 @@
 			buildConfigurations = (
 				8DE607F81B33070300BCDEE4 /* Debug */,
 				8DE607F91B33070300BCDEE4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8DE607FA1B33070300BCDEE4 /* Build configuration list for PBXNativeTarget "JX_GCDTimerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8DE607FB1B33070300BCDEE4 /* Debug */,
-				8DE607FC1B33070300BCDEE4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

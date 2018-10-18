@@ -10,7 +10,6 @@
 #import "JX_GCDTimerManager.h"
 
 @interface ViewController ()
-@property (nonatomic, strong) JX_GCDTimerManager *timerManager;
 @property (nonatomic, strong) NSTimer *timer;
 @end
 
@@ -47,7 +46,7 @@ static NSString * const myTimer = @"MyTimer";
     [[JX_GCDTimerManager sharedInstance] scheduledDispatchTimerWithName:@"myTime_hash"
                                                            timeInterval:2.0
                                                                   queue:dispatch_get_main_queue()
-                                                                repeats:NO
+                                                                repeats:YES
                                                           fireInstantly:NO
                                                                  action:^{
                                                                      [weakSelf doSomething];
