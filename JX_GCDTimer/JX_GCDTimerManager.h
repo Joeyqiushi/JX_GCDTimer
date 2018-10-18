@@ -8,11 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum : NSUInteger {
-    AbandonPreviousAction, // 废除同一个timer之前的任务
-    MergePreviousAction    // 将同一个timer之前的任务合并到新的任务中
-} ActionOption;
-
 @interface JX_GCDTimerManager : NSObject
 
 + (JX_GCDTimerManager *)sharedInstance;
@@ -24,15 +19,15 @@ typedef enum : NSUInteger {
  @param interval        执行的时间间隔。
  @param queue           timer将被放入的队列，也就是最终action执行的队列。传入nil将自动放到一个子线程队列中。
  @param repeats         timer是否循环调用。
- @param actionOption    多次schedule同一个timer时的操作选项(目前提供将之前的任务废除或合并的选项)。
+ @param fireInstantly   timer的第一次执行是否立刻触发，否则会等待interval的时长才会第一次执行。
  @param action          时间间隔到点时执行的block。
  */
 - (void)scheduledDispatchTimerWithName:(NSString *)timerName
                           timeInterval:(double)interval
                                  queue:(dispatch_queue_t)queue
                                repeats:(BOOL)repeats
-                          actionOption:(ActionOption)option
-                                action:(dispatch_block_t)action;
+                         fireInstantly:(BOOL)fireInstantly
+                                action:(dispatch_block_t)dispatchBlock;
 
 /**
  撤销某个timer。
