@@ -41,9 +41,9 @@
  *  是否存在某个名称标识的timer。
  *
  *  @param timerName timer的唯一名称标识。
- *
- *  @return YES表示存在，反之。
+ *  @param 查询结束回调。doExist==YES表示存在，反之。
  */
-- (BOOL)existTimer:(NSString *)timerName;
+- (void)checkExistTimer:(NSString *)timerName
+             completion:(void (^)(BOOL doExist))completion;
 
 @end
