@@ -1,6 +1,6 @@
 ## JX_GCDTimerManager
 
-![](https://img.shields.io/github/license/mashape/apistatus.svg) ![](https://img.shields.io/badge/platform-iOS-lightgrey.svg) ![](https://img.shields.io/badge/iOS-7.0%2B-blue.svg)
+![](https://img.shields.io/github/license/mashape/apistatus.svg) ![](https://img.shields.io/badge/platform-iOS-lightgrey.svg) ![](https://img.shields.io/badge/iOS-8.0%2B-blue.svg)
 
 JX_GCDTimerManager is a NSTimer like tool implemented using GCD.
 
@@ -26,7 +26,7 @@ You can add or remove functions as you need.
 
 ## Requirements
 
-This component requires `iOS 7.0+`.
+This component requires `iOS 8.0+`.
 
 ## Notice
 
