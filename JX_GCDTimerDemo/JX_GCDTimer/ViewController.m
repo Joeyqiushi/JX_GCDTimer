@@ -43,7 +43,7 @@ static NSString * const myTimer = @"MyTimer";
 
 - (void)demoGCDTimer {
     __weak typeof(self) weakSelf = self;
-    [[JX_GCDTimerManager sharedInstance] scheduledDispatchTimerWithName:@"myTime_hash"
+    [[JX_GCDTimerManager sharedInstance] scheduledDispatchTimerWithName:myTimer
                                                            timeInterval:2.0
                                                                   queue:dispatch_get_main_queue()
                                                                 repeats:YES
